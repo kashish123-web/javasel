@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-01-08T12:19:57 GMT" name="Default suite" finished-at="2026-01-08T12:19:58 GMT" duration-ms="1156">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@1e66f1f5]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-01-08T12:19:57 GMT" name="Default test" finished-at="2026-01-08T12:19:58 GMT" duration-ms="1156">
+      <class name="runners.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runners.TestRunner@1e66f1f5]" started-at="2026-01-08T12:19:57 GMT" name="setUpClass" finished-at="2026-01-08T12:19:58 GMT" duration-ms="816" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@24be2d9c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@1e66f1f5]" started-at="2026-01-08T12:19:58 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-08T12:19:58 GMT" duration-ms="207" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Successful login to DemoQA application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'user launches the application' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user launches the application")
+public void user_launches_the_application() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user navigates to Book Store Application")
+public void user_navigates_to_book_store_application() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user logs in with valid credentials")
+public void user_logs_in_with_valid_credentials() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be redirected to books page")
+public void user_should_be_redirected_to_books_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'user launches the application' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user launches the application")
+public void user_launches_the_application() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user navigates to Book Store Application")
+public void user_navigates_to_book_store_application() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user logs in with valid credentials")
+public void user_logs_in_with_valid_credentials() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be redirected to books page")
+public void user_should_be_redirected_to_books_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at ✽.user launches the application(file:///D:/javasel/javasel/src/test/resources/features/login.feature:4)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runners.TestRunner@1e66f1f5]" started-at="2026-01-08T12:19:58 GMT" name="tearDownClass" finished-at="2026-01-08T12:19:58 GMT" duration-ms="60" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runners.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
