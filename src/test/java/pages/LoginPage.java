@@ -15,9 +15,11 @@ public class LoginPage {
 
     // 🔹 LOCATORS (ONLY HERE)
     private By bookStoreCard = By.xpath("//h5[text()='Book Store Application']");
-    private By loginButton = By.id("login");
+    private By preLoginButton = By.xpath("//button[text()='Login']");
     private By usernameField = By.id("userName");
     private By passwordField = By.id("password");
+    private By loginButton = By.id("login");
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -27,10 +29,11 @@ public class LoginPage {
     // 🔹 LOGIC METHODS ONLY
 
     public void launchApplication() {
-        driver.get(ConfigReader.get("baseUrl"));
+        driver.get(ConfigReader.get("url"));
     }
 
     public void openBookStoreApplication() {
+
         WebElement bookStore = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(bookStoreCard)
         );
@@ -39,7 +42,14 @@ public class LoginPage {
                 .executeScript("arguments[0].scrollIntoView(true);", bookStore);
 
         wait.until(ExpectedConditions.elementToBeClickable(bookStore)).click();
+
+        // Explicit wait instead of Thread.sleep
+        WebElement preLoginClick = wait.until(
+                ExpectedConditions.elementToBeClickable(preLoginButton)
+        );
+        preLoginClick.click();
     }
+
 
     public void login(String username, String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField))
@@ -50,6 +60,15 @@ public class LoginPage {
     }
 
     public boolean isOnBooksPage() {
-        return driver.getCurrentUrl().contains("/books");
+        try {
+            return wait.until(
+                    ExpectedConditions.urlContains("/books")
+            );
+        } catch (TimeoutException e) {
+            System.out.println("Current URL is: " + driver.getCurrentUrl());
+            return false;
+        }
     }
+
+
 }

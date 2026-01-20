@@ -17,19 +17,20 @@ public class LoginSteps {
     LoginPage loginPage;
 
     @Given("user launches the application")
-    public void user_launches_the_application() {
+    public void userLaunchesTheApplication() {
         driver = DriverFactory.getDriver();
         loginPage = new LoginPage(driver);
         loginPage.launchApplication();
     }
-
+  
     @When("user navigates to Book Store Application")
-    public void user_navigates_to_book_store_application() {
+    public void userNavigatesToBookStoreApplication() throws InterruptedException {
         loginPage.openBookStoreApplication();
+        System.out.println("Clicked on Login Button");
     }
 
     @When("user logs in with valid credentials")
-    public void user_logs_in_with_valid_credentials() {
+    public void userLogsInWithValidCredentials() {
         loginPage.login(
                 ConfigReader.get("username"),
                 ConfigReader.get("password")
@@ -37,10 +38,11 @@ public class LoginSteps {
     }
 
     @Then("user should be redirected to books page")
-    public void user_should_be_redirected_to_books_page() {
+    public void userShouldBeRedirectedToBooksPage() {
         Assert.assertTrue(
                 loginPage.isOnBooksPage(),
                 "User is NOT redirected to Books page"
         );
     }
+
 }
