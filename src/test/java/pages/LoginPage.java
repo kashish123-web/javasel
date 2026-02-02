@@ -51,13 +51,41 @@ public class LoginPage {
     }
 
 
+//    public void login(String username, String password) {
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField))
+//                .sendKeys(username);
+//
+//        driver.findElement(passwordField).sendKeys(password);
+//        driver.findElement(loginButton).click();
+//    }
+    
     public void login(String username, String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField))
-                .sendKeys(username);
 
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(loginButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        // Enter username
+        WebElement user = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("userName")));
+        user.clear();
+        user.sendKeys(username);
+
+        // Enter password
+        WebElement pass = driver.findElement(By.id("password"));
+        pass.clear();
+        pass.sendKeys(password);
+
+        // Scroll login button into view
+        WebElement loginBtn = driver.findElement(By.id("login"));
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({block:'center'});", loginBtn
+        );
+
+        // Wait till clickable
+        wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
+
+        // 🔥 Click using JS to bypass ads iframe
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", loginBtn);
     }
+
 
     public boolean isOnBooksPage() {
         try {

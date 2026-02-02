@@ -4,7 +4,9 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+//        features = "src/test/resources/features/login.feature",
+        features = "src/test/resources/features/bookStore.feature",
+
         glue = "stepDefinitions",  // Match exact package
         plugin = {"pretty","html:target/cucumber-report.html"}
 )
