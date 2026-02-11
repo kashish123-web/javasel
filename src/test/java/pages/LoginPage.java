@@ -87,6 +87,17 @@ public class LoginPage {
     }
 
 
+//    public boolean isOnBooksPage() {
+//        try {
+//            return wait.until(
+//                    ExpectedConditions.urlContains("/books")
+//            );
+//        } catch (TimeoutException e) {
+//            System.out.println("Current URL is: " + driver.getCurrentUrl());
+//            return false;
+//        }
+//    }
+    
     public boolean isOnBooksPage() {
         try {
             return wait.until(
@@ -97,6 +108,10 @@ public class LoginPage {
             return false;
         }
     }
+
+
+
+
 
 
 }

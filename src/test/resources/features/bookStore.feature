@@ -5,8 +5,8 @@ Feature: Book Store Application
     When user navigates to Book Store Application
     And user logs in with valid credentials
     Then user should be redirected to books page
-
-  Scenario Outline: Verify search by different book attributes
+    
+  Scenario Outline: Verify search by different book attributes  
     When user searches book by "<searchType>" with value "<searchValue>"
     Then user should see correct search result for "<searchType>" with value "<searchValue>"
 
